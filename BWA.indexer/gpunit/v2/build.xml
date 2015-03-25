@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="run_tests" name="gpunit_runner">
+    <property file="gpunit.properties" />
+    <target name="run_tests">
+        <ant antfile="${gpunit.dir}/build.xml" target="gpunit" />
+    </target>
+    
+    <target name="clean">
+        <delete dir="test_runs" file="System.out" />
+    </target>
+</project>

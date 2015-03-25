@@ -1,0 +1,21 @@
+#lsid=urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00253:1.4
+#
+module: BWA.indexer
+name: BWA.indexer BWT-SW Algorithm
+description: The is a test of creating a BWA index using the BWT-SW Algorithm
+params:
+       fasta.file: "<%gpunit.testDataRoot%>Escherichia_coli_K_12_DH10B_EB1_Ensembl.fa"
+       algorithm: "bwtsw"
+       output.prefix: "<fasta.file_basename>"
+assertions:
+        files:
+            "Escherichia_coli_K_12_DH10B_EB1_Ensembl.amb":
+                diff: "<%gpunit.testNonPublicDataRoot%>BWA.indexer/v2/output/Escherichia_coli_K_12_DH10B_EB1_Ensembl.amb"
+            "Escherichia_coli_K_12_DH10B_EB1_Ensembl.ann":
+                diff: "<%gpunit.testNonPublicDataRoot%>BWA.indexer/v2/output/Escherichia_coli_K_12_DH10B_EB1_Ensembl.ann"
+            "Escherichia_coli_K_12_DH10B_EB1_Ensembl.bwt":
+                diff: "<%gpunit.testNonPublicDataRoot%>BWA.indexer/v2/output/Escherichia_coli_K_12_DH10B_EB1_Ensembl.bwt"
+            "Escherichia_coli_K_12_DH10B_EB1_Ensembl.pac":
+                diff: "<%gpunit.testNonPublicDataRoot%>BWA.indexer/v2/output/Escherichia_coli_K_12_DH10B_EB1_Ensembl.pac"
+            "Escherichia_coli_K_12_DH10B_EB1_Ensembl.sa":
+                diff: "<%gpunit.testNonPublicDataRoot%>BWA.indexer/v2/output/Escherichia_coli_K_12_DH10B_EB1_Ensembl.sa"

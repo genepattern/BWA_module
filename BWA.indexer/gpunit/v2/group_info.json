@@ -1,0 +1,1 @@
+{"defaults":{"output.prefix":"<fasta.file_basename>","algorithm":"is"},"module":"BWA.indexer","name":"testCases","optional":[],"choices":{"algorithm":{"is":"is","bwtsw":"bwtsw"}},"lsid":"urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00253:1.4"}
