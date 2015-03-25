@@ -1,0 +1,84 @@
+<project name="common">
+    <property name="user" value="${user.name}"/>
+    <property  name="lsid.registry.name" value="${dirOffset}/module.lsid.registry"/>
+	<condition property="dirOffset" else=".">
+		<isset property="dirOffset" />
+	</condition>
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<fileset dir="${dirOffset}/lib" includes="*.jar" />
+		</classpath>
+	</taskdef>
+
+    <!-- 
+       Work around the "includeantruntime" warning introduced in Ant 1.8.
+       For details, see http://stackoverflow.com/questions/5103384/ant-warning-includeantruntime-was-not-set
+     -->
+    <presetdef name="javac">
+        <javac includeantruntime="false" />
+    </presetdef>
+  
+    <target name="init">
+		<tstamp />
+        <property name="test.version" value="999999999"/>
+		<property name="dest.dir" value="build" />
+	</target>
+
+
+	<target name="prezip" depends="addLSIDtoManifest">
+		<tstamp />
+	    <echo  message="user is ${user}"/>
+    </target>
+
+    <target name="addLSIDtoManifest" depends="getLSID">
+        <tstamp>
+            <format property="publish.time" pattern="MM/dd/yyyy HH:mm " />
+        </tstamp>
+        <!-- move the manifest aside so that it is not always being modified in SVN -->
+        <copy file="manifest" tofile="manifest.tmp" preservelastmodified="true" overwrite="true" />
+        <!-- NOTE: this will overwrite any LSID= already in the manifest file -->
+        <propertyfile file="manifest">
+            <entry key="LSID" value="${LSID}" />
+            <entry key="publicationDate" value="${publish.time}" />
+        </propertyfile>
+    </target>
+
+    <target name="getNonReleaseLSID" unless="releasingModule">
+        <property file="${lsid.registry.name}" />
+        <property name="LSID.key" value="${ant.project.name}.lsid" />
+        <propertycopy name="LSID.noVersion" from="${LSID.key}" />
+        <!-- for a non-release build don't read the version number,
+    but set it to 999999999 -->
+        <property file="release.version" />
+        <condition value="${LSID.noVersion}:${version}" property="LSID" else="${LSID.noVersion}:${test.version}">
+            <isset property="version" />
+        </condition>
+        <echo>${LSID.key} = ${LSID}</echo>
+    </target>
+
+    <target name="getLSID" depends="getNonReleaseLSID" if="releasingModule">
+        <property file="${lsid.registry.name}" />
+        <property name="LSID.key" value="${ant.project.name}.lsid" />
+        <propertycopy name="LSID.noVersion" from="${LSID.key}" />
+        <!-- read the verison number, this is the next (unreleased) number
+    in most cases unless the buildnumber task has been called in the
+    release target -->
+        <property name="LSID" value="${LSID.noVersion}:${build.number}" />
+        <propertyregex property="moduleId" input="${LSID.noVersion}" regexp="urn:lsid:([^\:]*):([^\:]*):([^\:]*)" select="\3" casesensitive="false" />
+        <echo>${LSID.key} = ${LSID}</echo>
+    </target>
+
+    <target name="resetManifest">
+        <move file="manifest.tmp" tofile="manifest" preservelastmodified="true" overwrite="true" failonerror="true" />
+    </target>
+
+	<target name="postzip" depends="resetManifest">
+		<property file="${lsid.registry.name}" />
+		<property name="LSID.key" value="${ant.project.name}.lsid" />
+		<propertycopy name="LSID.noVersion" from="${LSID.key}" />
+		<propertyregex property="moduleId" input="${LSID.noVersion}" regexp="urn:lsid:([^\:]*):([^\:]*):([^\:]*)" select="\3" casesensitive="false" />
+		<property file="manifest" />
+	</target>
+
+</project>
