@@ -1,0 +1,37 @@
+#lsid=urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00254:1.8
+#
+module: BWA.aln
+name: Single-end GZ Compressed FASTA File
+description: This is a real test of providing a single-end gz compressed FASTA file as input
+params:
+       BWA.index: "<%gpunit.testDataRoot%>module_support_files/bwa/bwa_0.6/index/by_genome/Saccharomyces_cerevisiae_EF4_Ensembl/"
+       reads.pair.1: "<%gpunit.testInternalDataRoot%>BWA.aln/v2/input/s.cerevisiae_wt.fastq.gz"
+       reads.pair.2:
+       bam.mapping:
+       max.edit.distance:
+       max.num.gap:
+       max.gap.extension:
+       max.deletion.length:
+       max.indel.length:
+       seed.length:
+       max.seed.edit.distance:
+       mismatch.penalty:
+       gap.open.penalty:
+       gap.extension.penalty:
+       max.best.hits:
+       iterative.search: "no"
+       trim.reads:
+       Illumina.1.3.format: "no"
+       barcode.length:
+       max.insert.size:
+       max.occurrences:
+       max.alignments:
+       max.dc.alignments:
+       output.prefix: "<reads.pair.1_basename>"
+assertions:
+        files:
+            "s.cerevisiae_wt.fastq.sam":
+                diff: "<%gpunit.testNonPublicDataRoot%>BWA.aln/v2/output/valid_data/valid_pset_1_test/s.cerevisiae_wt.fastq.sam"
+            "cmdline.log":
+                diffCmd: ../diffIgnoreGpTraces.sh
+                diff: "<%gpunit.testNonPublicDataRoot%>BWA.aln/v2/output/valid_data/valid_pset_1_test/cmdline.log"

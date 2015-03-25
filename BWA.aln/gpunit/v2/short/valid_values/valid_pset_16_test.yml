@@ -1,0 +1,36 @@
+#lsid=urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00254:1.8
+#
+module: BWA.aln
+name: Paired-end FASTA File with Barcode Length
+description: This is a valid test of providing a paired-end FASTA file as input with barcode length set
+params:
+       BWA.index: "<%gpunit.testInternalDataRoot%>BWA.aln/v2/input/mock_index.zip"
+       reads.pair.1: "<%gpunit.testInternalDataRoot%>BWA.aln/v2/input/mock_read_1.fa"
+       reads.pair.2: "<%gpunit.testInternalDataRoot%>BWA.aln/v2/input/mock_read_2.fa"
+       bam.mapping:
+       max.edit.distance:
+       max.num.gap:
+       max.gap.extension:
+       max.deletion.length:
+       max.indel.length:
+       seed.length:
+       max.seed.edit.distance:
+       mismatch.penalty:
+       gap.open.penalty:
+       gap.extension.penalty:
+       max.best.hits:
+       iterative.search: "no"
+       trim.reads:
+       Illumina.1.3.format: "no"
+       barcode.length: "0"
+       max.insert.size:
+       max.occurrences:
+       max.alignments:
+       max.dc.alignments:
+       output.prefix: "<reads.pair.1_basename>"
+assertions:
+        jobStatus: error
+        diffCmd: ../diffIgnoreGpTraces.sh
+        files:
+            "cmdline.log":
+                diff: "<%gpunit.testNonPublicDataRoot%>BWA.aln/v2/output/valid_values/valid_pset_16_test/cmdline.log"
