@@ -19,6 +19,10 @@ params:
        min.num.seeds: 
        num.threads: "1"
        output.prefix: "<read.file_basename>"
+
+       # custom job queue flags to pass through to the GP server
+       # Note: Must use the REST client for this to work
+       job.memory: "4 Gb"
 assertions:
         jobStatus: error
         files:
