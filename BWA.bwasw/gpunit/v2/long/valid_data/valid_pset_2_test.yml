@@ -24,5 +24,5 @@ assertions:
             "s.cerevisiae_wt.sam":
                 diff: "<%gpunit.testNonPublicDataRoot%>BWA.bwasw/v2/output/valid_data/valid_pset_2_test/s.cerevisiae_wt.sam"
             "cmdline.log":
-                diffCmd: ../diffIgnoreGpTraces.sh
+                diffCmd: ../../diffIgnoreGpTraces.sh
                 diff: "<%gpunit.testNonPublicDataRoot%>BWA.bwasw/v2/output/valid_data/valid_pset_2_test/cmdline.log"

@@ -23,5 +23,5 @@ assertions:
         jobStatus: error
         files:
             "cmdline.log":
-                diffCmd: ../diffIgnoreGpTraces.sh
+                diffCmd: ../../diffIgnoreGpTraces.sh
                 diff: "<%gpunit.testNonPublicDataRoot%>BWA.bwasw/v2/output/valid_values/valid_pset_10_test/cmdline.log"
