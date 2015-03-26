@@ -30,7 +30,7 @@ params:
        output.prefix: "<reads.pair.1_basename>"
 assertions:
         jobStatus: error
-        diffCmd: ../diffIgnoreGpTraces.sh
+        diffCmd: ../../diffIgnoreGpTraces.sh
         files:
             "cmdline.log":
                 diff: "<%gpunit.testNonPublicDataRoot%>BWA.aln/v2/output/valid_values/valid_pset_7_test/cmdline.log"

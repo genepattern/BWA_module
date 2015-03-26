@@ -28,9 +28,13 @@ params:
        max.alignments:
        max.dc.alignments:
        output.prefix: "<reads.pair.1_basename>"
+
+       # custom job queue flags to pass through to the GP server
+       # Note: Must use the REST client for this to work
+       job.memory: "4 Gb"
 assertions:
         jobStatus: error
         files:
             "stderr.txt":
-                diffCmd: ../diffIgnoreGpTraces.sh
+                diffCmd: ../../diffIgnoreGpTraces.sh
                 diff: "<%gpunit.testNonPublicDataRoot%>BWA.aln/v2/output/invalid_values/invalid_pset_4_test/stderr.txt"

@@ -33,5 +33,5 @@ assertions:
             "s.cerevisiae_wt.fastq.sam":
                 diff: "<%gpunit.testNonPublicDataRoot%>BWA.aln/v2/output/valid_data/valid_pset_1_test/s.cerevisiae_wt.fastq.sam"
             "cmdline.log":
-                diffCmd: ../diffIgnoreGpTraces.sh
+                diffCmd: ../../diffIgnoreGpTraces.sh
                 diff: "<%gpunit.testNonPublicDataRoot%>BWA.aln/v2/output/valid_data/valid_pset_1_test/cmdline.log"
