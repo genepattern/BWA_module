@@ -1,0 +1,27 @@
+#lsid=urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00256:1.9
+#
+module: BWA.bwasw
+name: BWA.bwasw Invalid Test with FASTA File and Gap Open Penalty
+description: This is an invalid test of providing a FASTA file with an invalid gap open penalty set
+params:
+       BWA.index: "<%gpunit.testInternalDataRoot%>BWA.bwasw/v2/input/mock_index.zip"
+       read.file: "<%gpunit.testInternalDataRoot%>BWA.bwasw/v2/input/mock_read_1.fa"
+       mate.read.file:  
+       match.score: 
+       mismatch.penalty: 
+       gap.open.penalty: "three"
+       gap.extension.penalty: 
+       band.width: 
+       min.score.threshold: 
+       threshold.coefficient: 
+       z.best.heuristics: 
+       max.sa.interval.size: 
+       min.num.seeds: 
+       num.threads: "1"
+       output.prefix: "<read.file_basename>"
+assertions:
+        jobStatus: error
+        files:
+            "stderr.txt":
+                diffCmd: ../diffIgnoreGpTraces.sh
+                diff: "<%gpunit.testNonPublicDataRoot%>BWA.bwasw/v2/output/invalid_values/invalid_pset_3_test/stderr.txt"

@@ -1,0 +1,28 @@
+#lsid=urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00256:1.9
+#
+module: BWA.bwasw
+name: BWA.bwasw Real Test with FASTA File
+description: This is a real test of providing a FASTA file with default values set
+params:
+       BWA.index: "<%gpunit.testDataRoot%>module_support_files/bwa/bwa_0.6/index/by_genome/Saccharomyces_cerevisiae_EF4_Ensembl/"
+       read.file: "<%gpunit.testInternalDataRoot%>BWA.bwasw/v2/input/s.cerevisiae_mutant.fastq"
+       mate.read.file: 
+       match.score: 
+       mismatch.penalty: 
+       gap.open.penalty: 
+       gap.extension.penalty: 
+       band.width: 
+       min.score.threshold: 
+       threshold.coefficient: 
+       z.best.heuristics: 
+       max.sa.interval.size: 
+       min.num.seeds: 
+       num.threads: "1"
+       output.prefix: "<read.file_basename>"
+assertions:
+        files:
+            "s.cerevisiae_mutant.sam":
+                diff: "<%gpunit.testNonPublicDataRoot%>BWA.bwasw/v2/output/valid_data/valid_pset_1_test/s.cerevisiae_mutant.sam"
+            "cmdline.log":
+                diffCmd: ../diffIgnoreGpTraces.sh
+                diff: "<%gpunit.testNonPublicDataRoot%>BWA.bwasw/v2/output/valid_data/valid_pset_1_test/cmdline.log"

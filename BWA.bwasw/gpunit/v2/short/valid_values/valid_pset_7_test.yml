@@ -1,0 +1,27 @@
+#lsid=urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00256:1.9
+#
+module: BWA.bwasw
+name: BWA.bwasw Test with FASTA File and Min Score Threshold
+description: This is a valid test of providing a FASTA file with min score threshold set
+params:
+       BWA.index: "<%gpunit.testInternalDataRoot%>BWA.bwasw/v2/input/mock_index.zip"
+       read.file: "<%gpunit.testInternalDataRoot%>BWA.bwasw/v2/input/mock_read_1.fa"
+       mate.read.file: 
+       match.score: 
+       mismatch.penalty: 
+       gap.open.penalty: 
+       gap.extension.penalty: 
+       band.width: 
+       min.score.threshold: "37"
+       threshold.coefficient: 
+       z.best.heuristics: 
+       max.sa.interval.size: 
+       min.num.seeds: 
+       num.threads: "1"
+       output.prefix: "<read.file_basename>"
+assertions:
+        jobStatus: error
+        files:
+            "cmdline.log":
+                diffCmd: ../diffIgnoreGpTraces.sh
+                diff: "<%gpunit.testNonPublicDataRoot%>BWA.bwasw/v2/output/valid_values/valid_pset_7_test/cmdline.log"
