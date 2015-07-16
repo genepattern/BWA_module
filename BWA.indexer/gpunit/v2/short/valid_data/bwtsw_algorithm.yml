@@ -8,6 +8,7 @@ params:
        algorithm: "bwtsw"
        output.prefix: "<fasta.file_basename>"
 assertions:
+        diffCmd: diff
         files:
             "Escherichia_coli_K_12_DH10B_EB1_Ensembl.amb":
                 diff: "<%gpunit.testNonPublicDataRoot%>BWA.indexer/v2/output/Escherichia_coli_K_12_DH10B_EB1_Ensembl.amb"
