@@ -1,7 +1,7 @@
 #lsid=urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00254:1.8
 #
 module: BWA.aln
-name: Invalid Test with Two BAM Files
+name: BWA.aln: Invalid Test with Two BAM Files
 description: This is an invalid test of providing two BAM files as input
 params:
        BWA.index: "<%gpunit.testNonPublicDataRoot%>BWA.aln/v2/input/mock_index.zip"

@@ -1,7 +1,7 @@
 #lsid=urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00254:1.8
 #
 module: BWA.aln
-name: Paired-end FASTA File with Max Num Gap
+name: BWA.aln: Paired-end FASTA File with Max Num Gap
 description: This is a valid test of providing a paired-end FASTA file as input with max num gap set
 params:
        BWA.index: "<%gpunit.testInternalDataRoot%>BWA.aln/v2/input/mock_index.zip"
