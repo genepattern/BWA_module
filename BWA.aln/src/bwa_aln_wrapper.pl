@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-
+print "Loading files now!";
 use Config;
 use File::Basename;
 use File::Path;
@@ -14,7 +14,7 @@ use Archive::Extract;
 # Prefer cmd-line archive tools for better large file support.
 $Archive::Extract::PREFER_BIN=1;
 
-my $bwa_exec = "";
+my $bwa_exec = "bwa";
 my $libdir = "";
 my $index = "";
 my $pair1 = "";
@@ -145,7 +145,7 @@ else
 }
 
 my @aln_cmd = ();
-push (@aln_cmd, $bwa_exec, "aln");
+push (@aln_cmd, "bwa", "aln");
 
 if($maxEditDist ne "")
 {
@@ -260,7 +260,7 @@ my @sam_cmd = ();
 $read1_result = ${outputPrefix}."1.sai";
 my $outputFile = "$outputPrefix.sam";
 if($pair2 ne "") {
-    push (@sam_cmd, $bwa_exec, "sampe");
+    push (@sam_cmd, "bwa", "sampe");
     push(@sam_cmd, "-f", $outputFile);
     if($maxOccur ne "")
     {
@@ -298,7 +298,7 @@ if($pair2 ne "") {
     push(@sam_cmd, $bwa_index, $read1_result, $read2_result, $pair1, $pair2);
 }
 else{
-    push (@sam_cmd, $bwa_exec, "samse");
+    push (@sam_cmd, "bwa", "samse");
     push(@sam_cmd, "-f", $outputFile);
     if($maxAlignments ne "")
     {
