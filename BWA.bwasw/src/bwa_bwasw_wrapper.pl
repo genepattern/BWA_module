@@ -111,7 +111,7 @@ if($outputPrefix eq "")
 }
 
 my @bwasw_cmd = ();
-push (@bwasw_cmd, $bwa_exec, "bwasw");
+push (@bwasw_cmd, "bwa", "bwasw");
 
 if($mScore ne "")
 {
