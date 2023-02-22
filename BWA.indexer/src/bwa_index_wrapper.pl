@@ -26,7 +26,7 @@ my $result = GetOptions ("bwa:s" => \$bwa_exec,
 $output =~ s/ /_/g; # Replace any spaces with '_' to avoid issues creating output files.
 
 my @cmd = ();
-push (@cmd, $bwa_exec, "index");
+push (@cmd, "bwa", "index");
 push (@cmd, "-a", $alg, "-p", $output, $inputFile);
 
 #output command line to a separate file
