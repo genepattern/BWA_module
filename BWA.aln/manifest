@@ -1,7 +1,7 @@
 #BWA.aln
-#Wed Feb 22 16:58:25 UTC 2023
+#Wed Feb 22 17:41:08 UTC 2023
 JVMLevel=
-LSID=urn\:lsid\:broad.mit.edu\:cancer.software.genepattern.module.analysis\:00254\:1.21
+LSID=urn\:lsid\:broad.mit.edu\:cancer.software.genepattern.module.analysis\:00254\:1.22
 author=Heng Li, Broad Institute
 categories=rna-seq
 commandLine=perl /opt/genepatt/BWA.aln/src/bwa_aln_wrapper.pl -bwa <BWA_0.7.4>/bwa -libdir <libdir> -w1 <BWA.index> -p1 <reads.pair.1> -p2 <reads.pair.2> -bm <bam.mapping> -n1 <max.edit.distance> -g <max.num.gap> <max.gap.extension> -d <max.deletion.length> -idl <max.indel.length> -l <seed.length> -k <max.seed.edit.distance> -m <mismatch.penalty>  -o1 <gap.open.penalty> -E <gap.extension.penalty> -r <max.best.hits> -n2 <iterative.search> -q <trim.reads> -ilmn <Illumina.1.3.format> -B <barcode.length> -a <max.insert.size> -u <max.occurrences> -x1 <max.alignments> -x2 <max.dc.alignments> -t 4 -o2 <output.prefix>
@@ -332,7 +332,7 @@ p9_value=
 pipelineModel=
 privacy=public
 publicationDate=07/17/2014 14\:29 
-quality=preproduction
+quality=production
 requiredPatchLSIDs=urn\:lsid\:broadinstitute.org\:plugin\:Ant_1.8\:1,urn\:lsid\:broadinstitute.org\:plugin\:BWA_0_7_4\:1.2
 requiredPatchURLs=http\://www.broadinstitute.org/webservices/gpModuleRepository/download/prod/patch/?file\=/Ant_1_8/broadinstitute.org\:plugin/Ant_1.8/1/Ant_1_8.zip,http\://www.broadinstitute.org/webservices/gpModuleRepository/download/dev/patch/?file\=/BWA_0_7_4/broadinstitute.org\:plugin/BWA_0_7_4/1.2/BWA_0_7_4.zip
 serializedModel=
@@ -340,4 +340,4 @@ src.repo=
 taskDoc=doc.html
 taskType=rna-seq
 userid=edwin5588
-version=Updated BWA.Index drop down menu to new BWA module support files location at datasets.genepattern.org (Amazon S3). and specify docker image
+version=Updated BWA.Index drop down menu to new BWA module support files location at datasets.genepattern.org (Amazon S3). and specify docker image, to production

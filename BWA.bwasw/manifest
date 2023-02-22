@@ -1,7 +1,7 @@
 #BWA.bwasw
-#Wed Feb 22 16:59:15 UTC 2023
+#Wed Feb 22 17:42:10 UTC 2023
 JVMLevel=
-LSID=urn\:lsid\:broad.mit.edu\:cancer.software.genepattern.module.analysis\:00256\:1.16
+LSID=urn\:lsid\:broad.mit.edu\:cancer.software.genepattern.module.analysis\:00256\:1.17
 author=Heng Li, Broad Institute
 categories=rna-seq
 commandLine=perl /opt/genepatt/BWA.bwasw/src/bwa_bwasw_wrapper.pl -bwa <BWA_0.7.4>/bwa -libdir <libdir> -w1 <BWA.index> -p <read.file> -m <mate.read.file> -a <match.score> -b <mismatch.penalty> -q <gap.open.penalty> -r <gap.extension.penalty> -w <band.width> -t2 <min.score.threshold> -c <threshold.coefficient> -z <z.best.heuristics> -s <max.sa.interval.size> -n <min.num.seeds> -t1 <num.threads> -o <output.prefix>
@@ -214,8 +214,8 @@ p9_type=java.lang.Integer
 p9_value=
 pipelineModel=
 privacy=public
-publicationDate=07/17/2014 14\:30 
-quality=development
+publicationDate=02/22/2023 12\:08 
+quality=production
 requiredPatchLSIDs=urn\:lsid\:broadinstitute.org\:plugin\:Ant_1.8\:1,urn\:lsid\:broadinstitute.org\:plugin\:BWA_0_7_4\:1.2
 requiredPatchURLs=http\://www.broadinstitute.org/webservices/gpModuleRepository/download/prod/patch/?file\=/Ant_1_8/broadinstitute.org\:plugin/Ant_1.8/1/Ant_1_8.zip,http\://www.broadinstitute.org/webservices/gpModuleRepository/download/dev/patch/?file\=/BWA_0_7_4/broadinstitute.org\:plugin/BWA_0_7_4/1.2/BWA_0_7_4.zip
 serializedModel=
@@ -223,4 +223,4 @@ src.repo=
 taskDoc=doc.html
 taskType=rna-seq
 userid=edwin5588
-version=Update BWA.index to new index location (datasets.genepattern.org) and update dockerfile
+version=Update BWA.index to new index location (datasets.genepattern.org) and update dockerfile, to production

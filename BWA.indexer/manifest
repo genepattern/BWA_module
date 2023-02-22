@@ -1,7 +1,7 @@
 #BWA.indexer
-#Wed Feb 22 17:01:17 UTC 2023
+#Wed Feb 22 17:41:40 UTC 2023
 JVMLevel=
-LSID=urn\:lsid\:broad.mit.edu\:cancer.software.genepattern.module.analysis\:00253\:1.9
+LSID=urn\:lsid\:broad.mit.edu\:cancer.software.genepattern.module.analysis\:00253\:1.10
 author=Heng Li, Broad Institute
 categories=rna-seq
 commandLine=perl /opt/genepatt/BWA.indexer/src/bwa_index_wrapper.pl -bwa <BWA_0.7.4>/bwa -libdir <libdir> -f <fasta.file> -a <algorithm> -o <output.prefix>
@@ -57,8 +57,8 @@ p3_type=java.lang.String
 p3_value=
 pipelineModel=
 privacy=public
-publicationDate=07/17/2014 14\:25 
-quality=development
+publicationDate=02/22/2023 12\:09 
+quality=production
 requiredPatchLSIDs=urn\:lsid\:broadinstitute.org\:plugin\:Ant_1.8\:1,urn\:lsid\:broadinstitute.org\:plugin\:BWA_0_7_4\:1.2
 requiredPatchURLs=http\://www.broadinstitute.org/webservices/gpModuleRepository/download/prod/patch/?file\=/Ant_1_8/broadinstitute.org\:plugin/Ant_1.8/1/Ant_1_8.zip,http\://www.broadinstitute.org/webservices/gpModuleRepository/download/dev/patch/?file\=/BWA_0_7_4/broadinstitute.org\:plugin/BWA_0_7_4/1.2/BWA_0_7_4.zip
 serializedModel=
@@ -66,4 +66,4 @@ src.repo=
 taskDoc=doc.html
 taskType=rna-seq
 userid=edwin5588
-version=updated dockerfile and commandline to run script at dockerfile location
+version=updated dockerfile and commandline to run script at dockerfile location, to production
