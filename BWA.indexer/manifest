@@ -1,55 +1,69 @@
-#Wed, 24 Apr 2013 11:00:10 -0400
-#Tue Dec 07 11:54:13 EST 2010
+#BWA.indexer
+#Wed Feb 22 17:01:17 UTC 2023
 JVMLevel=
-LSID=
+LSID=urn\:lsid\:broad.mit.edu\:cancer.software.genepattern.module.analysis\:00253\:1.9
 author=Heng Li, Broad Institute
-commandLine=<perl> <libdir>bwa_index_wrapper.pl -bwa <BWA_0.7.4>/bwa -libdir <libdir> -f <fasta.file> -a <algorithm> -o <output.prefix>
+categories=rna-seq
+commandLine=perl /opt/genepatt/BWA.indexer/src/bwa_index_wrapper.pl -bwa <BWA_0.7.4>/bwa -libdir <libdir> -f <fasta.file> -a <algorithm> -o <output.prefix>
 cpuType=any
-description=[**Beta Release** Contact gp-help with any issues.  Check stdout.txt and stderr.txt for errors] Creates a BWT index from a sequence FASTA file for use with the BWA 0.7.4 aligners.
+description=Creates a BWT index from a sequence FASTA file for use with the BWA 0.7.4 aligners.
+documentationUrl=
 fileFormat=zip
-language=C;Perl
+job.cpuCount=
+job.docker.image=genepattern/bwa_modules\:v0.2
+job.memory=
+job.walltime=
+language=any
 name=BWA.indexer
 os=any
-pipelineModel=
-privacy=public
-quality=development
-serializedModel=
-taskType=RNA-seq
-userid=
-taskDoc=doc.html
-version=Updated to BWA 0.7.4 and switched to HTML-based doc
-
 p1_MODE=IN
 p1_TYPE=FILE
 p1_default_value=
-p1_description=A sequence FASTA file
-p1_fileFormat=fasta;fa
+p1_description=A sequence fasta file
+p1_fileFormat=fa;fasta
+p1_flag=
 p1_name=fasta.file
+p1_numValues=1..1
 p1_optional=
+p1_prefix=
 p1_prefix_when_specified=
 p1_type=java.io.File
 p1_value=
-
+p2_MODE=
+p2_TYPE=TEXT
 p2_default_value=
 p2_description=The algorithm to use for constructing the BWT index
 p2_fileFormat=
+p2_flag=
 p2_name=algorithm
+p2_numValues=1..1
 p2_optional=
+p2_prefix=
 p2_prefix_when_specified=
 p2_type=java.lang.String
 p2_value=is;bwtsw
-
+p3_MODE=
+p3_TYPE=TEXT
 p3_default_value=<fasta.file_basename>
 p3_description=A prefix for the output file name.
 p3_fileFormat=
+p3_flag=
 p3_name=output.prefix
+p3_numValues=1..1
 p3_optional=
+p3_prefix=
 p3_prefix_when_specified=
 p3_type=java.lang.String
 p3_value=
-
-
-requiredPatchLSIDs=urn\:lsid\:broadinstitute.org\:plugin\:Ant_1.8\:1,\
-   urn\:lsid\:broadinstitute.org\:plugin\:BWA_0_7_4\:1.2
-requiredPatchURLs=http\://www.broadinstitute.org/webservices/gpModuleRepository/download/prod/patch/?file\=/Ant_1_8/broadinstitute.org\:plugin/Ant_1.8/1/Ant_1_8.zip,\
-   http\://www.broadinstitute.org/webservices/gpModuleRepository/download/dev/patch/?file\=/BWA_0_7_4/broadinstitute.org\:plugin/BWA_0_7_4/1.2/BWA_0_7_4.zip
+pipelineModel=
+privacy=public
+publicationDate=07/17/2014 14\:25 
+quality=development
+requiredPatchLSIDs=urn\:lsid\:broadinstitute.org\:plugin\:Ant_1.8\:1,urn\:lsid\:broadinstitute.org\:plugin\:BWA_0_7_4\:1.2
+requiredPatchURLs=http\://www.broadinstitute.org/webservices/gpModuleRepository/download/prod/patch/?file\=/Ant_1_8/broadinstitute.org\:plugin/Ant_1.8/1/Ant_1_8.zip,http\://www.broadinstitute.org/webservices/gpModuleRepository/download/dev/patch/?file\=/BWA_0_7_4/broadinstitute.org\:plugin/BWA_0_7_4/1.2/BWA_0_7_4.zip
+serializedModel=
+src.repo=
+taskDoc=doc.html
+taskType=rna-seq
+userid=edwin5588
+version=updated dockerfile and commandline to run script at dockerfile location
